@@ -1,0 +1,15 @@
+# Virtual Environments
+venv/
+env/
+
+# Massive Datasets
+data/
+
+# Machine Learning Models and Artifacts
+artifacts/
+mlruns/
+
+# Python Cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
