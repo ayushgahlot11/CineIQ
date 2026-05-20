@@ -49,10 +49,17 @@ def generate_genre_radar(user_id, ratings_df, metadata_df):
         theta=[k.capitalize() for k in top_themes.keys()]
     ))
     
+    # --- YAHAN 'markers=True' ADD KIYA HAI ---
     fig = px.line_polar(df, r='r', theta='theta', line_close=True, 
-                        color_discrete_sequence=['#00E676'])
+                        markers=True, color_discrete_sequence=['#00E676'])
     
-    fig.update_traces(fill='toself', fillcolor='rgba(0, 230, 118, 0.2)')
+    # --- YAHAN HOVER TEMPLATE ADD KIYA HAI ---
+    fig.update_traces(
+        fill='toself', 
+        fillcolor='rgba(0, 230, 118, 0.2)',
+        hovertemplate='<b>%{theta}</b>: %{r} interactions<extra></extra>'
+    )
+    
     fig.update_layout(
         polar=dict(
             radialaxis=dict(visible=False),
